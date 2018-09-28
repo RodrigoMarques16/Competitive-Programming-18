@@ -1,2 +1,2 @@
 # Competitive-Programming-18
-Fall 2018
+http://www.dcc.fc.up.pt/~pribeiro/aulas/pc1819/
