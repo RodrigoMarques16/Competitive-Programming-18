@@ -32,8 +32,9 @@ int main() {
         
         // For every student we read the courses they've signed up for
         // and store them on a vector. We then sort the vector and
-        // hash it as a key for the map. Then we only have to increment
-        // the popularity
+        // hash it as a key for the map. Sorting is necessary to make sure 
+        // the same combination doesn't get a different hash key.
+        // Then we only have to increment the popularity.
         // Boost's hash_combine algorithm is used for hashing.
 
         while(n--) {
@@ -61,7 +62,8 @@ int main() {
         for(auto it : m)
             if (it.second == max_pop)
                 count++;
-
+  
+        // count * max_pop is the total number of students
         cout << count * max_pop << endl;
 
         cin >> n;
