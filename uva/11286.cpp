@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// 11286 - Conformity
 // https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=2261
 //
 // Find the most popular combinations of courses chosen by students and count
