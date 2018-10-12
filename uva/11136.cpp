@@ -27,6 +27,8 @@ using namespace std;
 // Knowing that we can just remove those bills
 // from the set and calculate the cost for that day
  
+// Time: O(n * log(n))
+// Size: O(n)
 int main() {
 
     int days, sales, bill;
