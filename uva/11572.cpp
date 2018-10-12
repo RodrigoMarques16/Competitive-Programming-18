@@ -71,8 +71,8 @@ int main() {
       if (index != 0) {
 	// Check if the duplicate was found inside the
 	// current segment and update count
-        start = max(start, index);
-	count = i-start-1;
+        start = max(start + 1, index);
+	count = i - start;
       }
 
       count++;
