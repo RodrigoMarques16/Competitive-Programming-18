@@ -4,6 +4,25 @@
 
 using namespace std;
 
+// 11995 - I Can Guess the Data Structure
+//
+// Given a sequence of push and pop commands, determine
+// if they correspond to a set, queue or priority queue
+//
+// The simplest way to solve this problem is to assuse the 
+// mentioned structures and apply the input commands. 
+// When a pop command in the input doesn't match with
+// a pop command in the code then we know that one's not true
+
+// explain binary crap here
+//
+
+// Time: O(n * insertion time)
+// Space: O(n)
+
+
+
+
 int main() {
     
     int n;
