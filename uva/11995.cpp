@@ -6,31 +6,27 @@ using namespace std;
 
 // 11995 - I Can Guess the Data Structure
 //
-// Given a sequence of push and pop commands, determine
-// if they correspond to a set, queue or priority queue
+// Given a sequence of push and pop commands, determine if they correspond to a set,
+// queue or priority queue.
 //
-// The simplest way to solve this problem is to assuse the 
-// mentioned structures and apply the input commands. 
-// When a pop command in the input doesn't match with
-// a pop command in the code then we know that one's not true
-
-// explain binary crap here
+// Using the STL's data structures we can keep track of which structure is valid
+// for the given input.
 //
-
 // Time: O(n * insertion time)
 // Space: O(n)
 
-
-
-
 int main() {
     
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
     int n;
 
     while(cin >> n) {
+        
+        stack<int> s;
         queue<int> q;
         priority_queue<int, vector<int>, std::less<int>> p;
-        stack<int> s;
         int isQueue, isPQueue, isStack;
 
         isQueue = isPQueue = isStack = 1;
@@ -42,15 +38,24 @@ int main() {
             if (command == 1) {
                 s.push(value);
                 p.push(value);
-                q.push(value);                
+                q.push(value);    
+
             } else {
-
-                isQueue  = isQueue  && (!q.empty()) && (q.front() == value);
-                isPQueue = isPQueue && (!p.empty()) && (p.top() == value);
-                isStack  = isStack  && (!s.empty()) && (s.top() == value);
-
-                if (q.empty())
+                
+                // Ignore pop commands when the structures are empty
+                
+                if (q.empty()) {
+                    isQueue = isPQueue = isStack = 0;
                     continue;
+                }
+
+                // Here we check if the first element of the structures is the same 
+                // as the one read from input
+                // We need to check empty() before trying to access the data!
+
+                isQueue  = isQueue  && (q.front() == value);
+                isPQueue = isPQueue && (p.top()   == value);
+                isStack  = isStack  && (s.top()   == value);
 
                 q.pop();
                 p.pop();   
@@ -59,7 +64,9 @@ int main() {
 
         }
 
-        int result = isQueue + (isPQueue << 1) + (isStack  << 2);
+        // cool bit shifts so we can use a switch for the output
+
+        int result = isQueue + (isPQueue << 1) + (isStack << 2);
 
         switch(result){
             case 0: {
