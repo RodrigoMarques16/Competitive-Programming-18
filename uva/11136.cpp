@@ -6,29 +6,14 @@
 using namespace std;
 
 // 1136 - Hoax or what
-// For every sale, its bill can be inserted in a
-// ballot. Each day, the difference between the
-// highest and lowest bills in the ballot are
-// awarded to a customer. 
-// 
-// The ballot is not emptied at the end of the 
-// day.
 //
-// Given n days, calculate the total cost of 
-// the promotion.
-
-// This problem is pretty straight forward.
+// Keep track of the bills using a multiset so
+// the lowest and highest are always at the begin
+// and end respectively
 //
-// With a multiset, we can insert bills into
-// it in every repetition while it stays sorted.
-// The lowest bill will be at the beggining, the
-// highest bill at end.
-//
-// Knowing that we can just remove those bills
-// from the set and calculate the cost for that day
- 
 // Time: O(n * log(n))
 // Size: O(n)
+
 int main() {
 
     int days, sales, bill;
@@ -47,7 +32,7 @@ int main() {
                 cin >> bill;
                 bills.insert(bill);
             }
-
+         
             auto low = bills.begin();
             auto high = --bills.end();
 
