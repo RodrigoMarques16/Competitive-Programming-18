@@ -12,7 +12,7 @@ using namespace std;
 // Using the STL's data structures we can keep track of which structure is valid
 // for the given input.
 //
-// Time: O(n * insertion time)
+// Time:  O(n log n) 
 // Space: O(n)
 
 int main() {
@@ -42,8 +42,8 @@ int main() {
 
             } else {
                 
-                // Ignore pop commands when the structures are empty
-                
+                // Ignore pop commands when the structures are empty    
+
                 if (q.empty()) {
                     isQueue = isPQueue = isStack = 0;
                     continue;
