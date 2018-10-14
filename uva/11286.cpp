@@ -12,8 +12,7 @@ using namespace std;
 // how many students have picked them
 // A combination is a set of 5 courses, e.g., (100, 101, 102, 103, 104)
 // A combination's popularity is defined by how many students have picked it
-
-// Per test:
+//
 //  Time:  O(n log n) 
 //  Space: O(n)
 

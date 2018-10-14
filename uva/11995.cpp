@@ -5,6 +5,7 @@
 using namespace std;
 
 // 11995 - I Can Guess the Data Structure
+// https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3146
 //
 // Given a sequence of push and pop commands, determine if they correspond to a set,
 // queue or priority queue.

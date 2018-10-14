@@ -7,9 +7,12 @@ using namespace std;
 // https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2619
 //
 // Given a sequence of random integers (representing a snowflake),
-// find the longest sequence of consecutive unique integers
+// find the longest segment of consecutive unique integers
 //
+// Save the last position a number was seen at using an unordered map
 //
+// Keep track of the current segment using variables start (where it begins) 
+// and count (its size)
 //
 // Time:  O(n)
 // Space: O(n)
@@ -30,7 +33,6 @@ int main() {
     cin >> n;
 
     count = start = max_segment = 0;
-    //last_seen.clear();
 
     for(int i = 1; i <= n; i++) {
 
@@ -38,10 +40,11 @@ int main() {
       cin >> sf;
 
       int index = last_seen[sf];
-      
-      // Check if the duplicate was found inside the current segment and update count
 
       if (index != 0) {
+        // If the number was last seen inside the current segment then update start and 
+        // count to match the new segment
+        // If the number was last seen before the current segment then count doesn't change
         start = max(start, index);
 	      count = i - start;
       } else {
