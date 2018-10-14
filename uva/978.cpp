@@ -15,7 +15,7 @@ typedef multiset<int>::iterator soldier;
 // For each round, take the soldiers to battle out from the multiset and save the survivors
 // in a vector to add back to the set when the round is over.
 //
-// Time:  O() 
+// Time:  O(n * n log n) 
 // Space: O(n)
 
 int main() {
