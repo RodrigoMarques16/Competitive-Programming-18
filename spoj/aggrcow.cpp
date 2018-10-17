@@ -67,7 +67,7 @@ int main() {
             }
             
             if (search(low, stalls, c) == false){
-                cout << middle << endl;
+                cout << low - 1 << endl;
                 break;
             }
         }
