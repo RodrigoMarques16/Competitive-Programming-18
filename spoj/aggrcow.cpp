@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+ 
 #define DEBUG(x) cout << #x << ": " << x << endl;
 
 using namespace std;
