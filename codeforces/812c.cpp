@@ -31,9 +31,8 @@ int main() {
 
     cin >> n >> budget;
 
-    for(int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++)
         cin >> souvenirs[i];
-    }
 
     int low = 0, high = n + 1;
 
