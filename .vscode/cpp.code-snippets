@@ -12,10 +12,10 @@
 		  "\tios::sync_with_stdio(0);",
 		  "\tcin.tie(NULL);",
 		  "",
-		  "return 0;",
+		  "\treturn 0;",
 		  "}"
         ],
-        "description": "For Loop"
+        "description": "Base program for contest problems"
     }	
 
 }

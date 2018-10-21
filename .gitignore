@@ -3,10 +3,8 @@
 
 # Except these
 !*.cpp
-!*.code-snippets
 
 # Or directories
 !*/
-!.*/
 !.gitignore
 !README.md
