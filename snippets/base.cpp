@@ -1,5 +1,7 @@
 #include <iostream>
 
+#define DEBUG(x) cout << #x << ": " << x << endl;
+
 using namespace std;
 
 int main() {
