@@ -14,7 +14,7 @@ using namespace std;
 // Build a segment tree that saves each number's signal
 //
 // Time: building: O(N); searching: O(log N)
-// Space: O(2N)
+// Space: O(N)
 
 
 const char signal[3] = {'-','0','+'};

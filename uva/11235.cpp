@@ -19,7 +19,7 @@ using namespace std;
 // as the algorithm will consider the full sequences even if they are outside the range
 //
 // Time: O(N) building, O(logN) search
-// Space: O(5N)
+// Space: O(N)
 
 int n;
 int v[N];
