@@ -1,9 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 #define DEBUG(x) cout << #x << ": " << x << endl;
-
 #define N 100000
+#define log2(n) log(double(n))/log(2.0)
 
 using namespace std;
 
@@ -21,12 +22,17 @@ using namespace std;
 // Space: O(5N)
 
 int n;
-int st[N] = {0};
-int v[N] = {0};
-int freq[N] = {0};
+int v[N];
+vector<int> st;
+vector<int> freq(N, 0);
 
 int merge(int a, int b) {
     return std::max(a,b);
+}
+
+void initTree(int size){
+	int count = 2*pow(2,floor(log2(size)) + 1);
+	st.resize(count);
 }
 
 void build(int node, int start, int end) {
@@ -66,8 +72,8 @@ int query(int node, int start, int end, int x, int y){
 }
 
 int main() {
-    //ios::sync_with_stdio(0);
-    //cin.tie(NULL);
+    ios::sync_with_stdio(0);
+    cin.tie(NULL);
 
     cin >> n;
 
@@ -106,6 +112,7 @@ int main() {
             end[j]  = n - 1;
         }
 
+        initTree(n);
         build(1, 0, n-1);
 
         while(q--) {
