@@ -1,0 +1,22 @@
+{
+	"Base": {
+        "prefix": "base",
+        "scope": "cpp",
+        "body": [
+          "#include <iostream>",
+          "",
+          "#define DEBUG(x) cout << #x << \": \" << x << endl;",
+          "",
+          "using namespace std;",
+		  "",
+          "int main() {",
+		  "\tios::sync_with_stdio(0);",
+		  "\tcin.tie(NULL);",
+		  "",
+		  "\treturn 0;",
+		  "}"
+        ],
+        "description": "Base program for contest problems"
+    }	
+
+}
