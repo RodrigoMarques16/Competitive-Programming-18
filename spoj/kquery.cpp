@@ -20,12 +20,18 @@ typedef struct _Query {
     int index;
 } Query;
 
-bool cmp(const _Query &a, const _Query &b) {
+bool sortK(const _Query &a, const _Query &b) {
     return a.k > b.k;
 }
 
+bool sortIndex(const _Query &a, const _Query &b) {
+    return a.index < b.index;
+}
+
 int v[N];
+int ans[N];
 vector<int> st;
+
 
 void initTree(int size){
 	int count = 2*pow(2,floor(log2(size)) + 1);
@@ -98,7 +104,7 @@ int main() {
         queries.push_back({--i, --j, k, index});
     }
 
-    std::sort(queries.begin(), queries.end(), cmp);
+    std::sort(queries.begin(), queries.end(), sortK);
 
     return 0;
 }
