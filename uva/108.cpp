@@ -47,7 +47,7 @@ int main() {
             }
         }
 
-        cout << max_sum << endl;
+        cout << ans << endl;
     }
     return 0;
 }
