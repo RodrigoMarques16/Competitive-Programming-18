@@ -4,10 +4,10 @@
 
 // UVA 166 - Making Change
 //
-// intro
+// You have a limited supply of coins, the shopkeeper has an unlimited supply. Given a value
+// you must pay calculate the minimum amount of coins that change hands.
 //
 // 
-
 
 #define DEBUG(x) cout << #x << ": " << x << endl;
 #define NCOINS 6
