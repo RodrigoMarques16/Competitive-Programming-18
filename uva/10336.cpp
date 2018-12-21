@@ -10,10 +10,7 @@ using namespace std;
 
 // UVA 10336 - Rank the Languages
 //
-// flood fill
-//
-//
-
+// direct application of flood fill with some cool c++ sorting
 
 int h, w;
 array<array<bool, N>, N> visited;
@@ -71,7 +68,6 @@ int main() {
     cin >> n;
     
     for(int test = 1; test <= n; test++) {
-        cout << "World #" << test << endl;
         cin >> h >> w;
 
         for(int i = 0; i < h; i++) {
@@ -86,6 +82,7 @@ int main() {
         
         set<pair<char,int>, Cmp> count_set(count.begin(), count.end());
 
+        cout << "World #" << test << endl;
         for(auto pair : count_set) {
             cout << pair.first << ": " << pair.second << endl;
         }
