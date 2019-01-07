@@ -2,12 +2,17 @@
 #include <vector>
 #include <algorithm>
 
+
 // UVA 166 - Making Change
-//
-// You have a limited supply of coins, the shopkeeper has an unlimited supply. Given a value
-// you must pay calculate the minimum amount of coins that change hands.
-//
 // 
+// Given a finite supply of coins, and knowing the
+// shopkeeper has an infinite supply, calculate
+// the minimum number of coins that have to change
+// hands.
+//
+// Since it's guaranteed values will be multiples of
+// five we can divided them by 5 to reduce the size
+// of the array.
 
 #define DEBUG(x) cout << #x << ": " << x << endl;
 #define NCOINS 6
