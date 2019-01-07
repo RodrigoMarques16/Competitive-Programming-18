@@ -13,7 +13,7 @@ const double INF = numeric_limits<double>::max();
 struct Point {
     double x, y;
 
-    explicit Point() : x(), y() {
+    Point() : x(), y() {
     }
 
     Point(const double& _x, const double& _y) : x(_x), y(_y) {
@@ -40,7 +40,7 @@ struct Segment {
     Point a;
     Point b;
 
-    explicit Segment() : a(), b() {
+    Segment() : a(), b() {
     }
 
     Segment(const Point& _a, const Point& _b) : 
@@ -59,7 +59,7 @@ struct Line {
     double b;
     double c;
 
-    explicit Line() : a(0), b(0), c(0) {
+    Line() : a(0), b(0), c(0) {
     }
 
     Line(const Point& A, const Point& B) {
@@ -207,7 +207,7 @@ int main() {
             //segment.print(); cout << " intersects at "; intsect.print(); cout << endl;
             
             //if (inside)
-                //count += dist(prev, intsect);
+            //    count += dist(prev, intsect);
             
             //prev = intsect;
             //inside = !inside;
