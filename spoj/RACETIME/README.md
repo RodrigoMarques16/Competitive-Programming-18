@@ -73,31 +73,41 @@ Start by dividing the array in sorted buckets of size sqrt(_N_).
 
 **Eg:**
 
+>The array:
+<br>
 > 3 4 1 7 45 34 41 26 10 46 43 39 11 44 18 1
-
-would be
-
+<br>
+>would be partitioned as:
+<br>
 > 1 3 4 7 **|** 26 34 41 45 **|** 10 39 43 45 **|** 1 11 18 44
 
-With this segmented array, to find how many members of a bucket are lower than a value we need only to find the first member equal or larger than that value.
+To find how many members of a bucket are lower than a value we need only to find the first member equal or larger than that value.
 
-**Eg:** With the above array, if we wanted to find all values lower than 40 in the second bucket we stop counting when we reach 41.
+**Eg:**
+
+>With the above array, if we wanted to find all values lower than 40 in the second bucket we stop counting when we reach 41.
 
 The caveat of this method is that it only works if a bucket is completely included. By sorting we're losing the original ordering of the array (which is the ordering the queries are asking about)
 
-Taking the first 4 elements
+**Eg:**
 
+>Taking the first 4 elements
+<br>
 > 3 4 1 7
-
-And the corresponding bucket
-
+<br>
+<br>
+>And the corresponding bucket
+<br>
 > 1 3 4 7
-
-Say we ask for all numbers lower than 2 in the range [0,1]. Obviously there's none in the original array but querying the sorted bucket would give '1'.
+<br>
+<br>
+>Say we ask for all numbers lower than 2 in the range [0,1]. Obviously there's none in the original array but querying the sorted bucket would give '1'.
 
 So, for partially included buckets we still go with the naive 'count them one by one' solution. This happens when the range we're looking at is smaller than a bucket, or the first and/or last bucket are partially included.
 
 Now to implement this:
+
+### Data structures
 
 We will use some auxiliary structures to make the code easier to understand:
 
@@ -111,9 +121,13 @@ int start_index[N]; // start_index[b] saves the position where bucket b begins
 int end_index[N];   // Analogous to start_index
 ```
 
-Check the full code bellow to see how to initialize them.
+Check the full code below to see how to initialize them.
 
-`count` stays the same.
+### Count
+
+`count` is the same as the naive solution.
+
+### Update
 
 `update` now has to find the element inside its bucket since it's position is lost when sorted.
 Then we have to sort it again.
@@ -134,11 +148,13 @@ void update(int i, int val) {
 }
 ```
 
-Now to answer queries we need to implement each case:
+### Query
 
-- The range is of equal size or smaller than a bucket (ie: for the range \[x,y\], x and y belong to the same bucket)
+Now to answer queries we need to consider each case:
+
+- The range is of equal size or smaller than a bucket
 - The range begins or ends in the middle of a bucket
-- Every bucket between the first and last is for sure fully contained
+- Every bucket between the first and last is guarantted to be fully contained
 
 [std::upper_bound](https://en.cppreference.com/w/cpp/algorithm/upper_bound)
 
