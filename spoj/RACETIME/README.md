@@ -16,7 +16,7 @@ The first line gives the integers _N_ and _Q_, and the next N lines give the ini
 
 Print the answer to each 'C' query, one per line.
 
-## Example
+### Example
 
 <pre>
 <b>Input:</b>
@@ -38,6 +38,8 @@ C 1 3 9
 4
 2
 </pre>
+
+---
 
 ## Solution 1 (Naive)
 
@@ -67,19 +69,19 @@ int main() {
 
 ```
 
+---
+
 ## Solution 2 (Square Root Decomposition)
 
 Start by dividing the array in sorted buckets of size sqrt(_N_).
 
 **Eg:**
 
->The array:
-<br>
+>The array:  
 > 3 4 1 7 45 34 41 26 10 46 43 39 11 44 18 1
-<br>
->would be partitioned as:
-<br>
-> 1 3 4 7 **|** 26 34 41 45 **|** 10 39 43 45 **|** 1 11 18 44
+>
+>would be partitioned as:  
+>1 3 4 7 **|** 26 34 41 45 **|** 10 39 43 45 **|** 1 11 18 44  
 
 To find how many members of a bucket are lower than a value we need only to find the first member equal or larger than that value.
 
@@ -91,16 +93,12 @@ The caveat of this method is that it only works if a bucket is completely includ
 
 **Eg:**
 
->Taking the first 4 elements
-<br>
-> 3 4 1 7
-<br>
-<br>
->And the corresponding bucket
-<br>
-> 1 3 4 7
-<br>
-<br>
+>Taking the first 4 elements  
+>3 4 1 7  
+>
+>And the corresponding bucket  
+>1 3 4 7  
+>
 >Say we ask for all numbers lower than 2 in the range [0,1]. Obviously there's none in the original array but querying the sorted bucket would give '1'.
 
 So, for partially included buckets we still go with the naive 'count them one by one' solution. This happens when the range we're looking at is smaller than a bucket, or the first and/or last bucket are partially included.
@@ -132,8 +130,7 @@ Check the full code below to see how to initialize them.
 `update` now has to find the element inside its bucket since it's position is lost when sorted.
 Then we have to sort it again.
 
-[std::lower_bound](https://en.cppreference.com/w/cpp/algorithm/lower_bound)
-
+[std::lower_bound](https://en.cppreference.com/w/cpp/algorithm/lower_bound)  
 [std::sort](https://en.cppreference.com/w/cpp/algorithm/sort)
 
 ```cpp
@@ -156,8 +153,7 @@ Now to answer queries we need to consider each case:
 - The range begins or ends in the middle of a bucket
 - Every bucket between the first and last is guarantted to be fully contained
 
-[std::upper_bound](https://en.cppreference.com/w/cpp/algorithm/upper_bound)
-
+[std::upper_bound](https://en.cppreference.com/w/cpp/algorithm/upper_bound)  
 [std::distance](https://en.cppreference.com/w/cpp/iterator/distance)
 
 ```cpp
