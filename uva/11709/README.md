@@ -225,6 +225,18 @@ void kosaraju() {
 }
 ```
 
+## Complexity
+
+Where V and E are the number of vertices and edges respectively.
+
+**Building the stack**: O(V+E)  
+**Building the tranpose**: O(E)  
+**Finding the SCC's in the tranpose**: O(V+E)  
+
+**Total**: O(2V+3E)
+
+---
+
 ## Full code
 
 ```cpp

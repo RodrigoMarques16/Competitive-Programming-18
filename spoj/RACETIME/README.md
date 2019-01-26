@@ -191,6 +191,14 @@ int query(int x, int y, int val) {
 }
 ```
 
+## Complexity
+
+Considering N as the size of a single bucket
+
+**Partial bucket**: O(N)  
+**Full bucket**: O(log(last-first)), for the first and last indexes of the bucket  
+**Update**: O(N log(N))
+
 ---
 
 ## Full code

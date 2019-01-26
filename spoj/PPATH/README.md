@@ -131,6 +131,12 @@ int bfs(int start, int goal) {
 }
 ```
 
+## Complexity
+
+O(N), where N is the number of primes that have to be generated. 
+
+---
+
 ## Full code
 
 ```cpp
