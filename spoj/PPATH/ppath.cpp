@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <vector>
 #include <unordered_map>
 
 #define DEBUG(x) cout << #x << ": " << x << endl;
@@ -37,11 +38,11 @@ static constexpr std::size_t ct_sqrt(std::size_t res){
     return ct_sqrt(res, 1, res);
 }
 
+
 // compile time primes
 // https://gist.github.com/rongjiecomputer/d52f34d27a21b8c9c9e82ca85b806640
 template <size_t N>
 struct Sieve {
-    public:
     bool is_prime[N];
 
     constexpr Sieve() : is_prime{} {
@@ -57,35 +58,36 @@ struct Sieve {
     }
 };
 
-constexpr auto sieve = Sieve<MAX>();
+static constexpr auto sieve = Sieve<MAX>();
 
-int bfs(string start, string goal) {
-    queue<string> q;
-    unordered_map<string, bool> visited;
-    unordered_map<string, int> depth;
-   
+int bfs(int start, int goal) {
+    queue<int> q;
+    vector<int> visited(MAX);
+    vector<int> depth(MAX);
+
     q.push(start);
     visited[start] = true;
     depth[start] = 0;
 
     while(!q.empty()) {
-        string current = q.front();
+        int current = q.front();
         q.pop();
 
-        if (current == goal) {
+        if (current == goal)
             return depth[current];
-        }
+
+        string curr_string = to_string(current);
 
         for(int i = 0; i < 4; i++) {
-    	    for(int j = 0; j < 10; j++) {
-                string next{current};
+            for(int j = 0; j < 10; j++) {
+                string next{curr_string};
                 next[i] = j + '0';
 
                 int num = stoi(next);
-                if (num >= 1000 && !visited[next] && sieve.is_prime[num]) {
-                    q.push(next);
-                    visited[next] = true;
-                    depth[next] = depth[current] + 1;
+                if (num >= 1000 && !visited[num] && sieve.is_prime[num]) {
+                    q.push(num);
+                    visited[num] = true;
+                    depth[num] = depth[current] + 1;
                 }
             }
         }
@@ -102,7 +104,7 @@ int main() {
     cin >> n;
 
     while(n--) {
-        string a, b;
+        int a, b;
         cin >> a >> b;
         cout << bfs(a, b) << endl;
     }
