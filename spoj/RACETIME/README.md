@@ -105,7 +105,7 @@ So, for partially included buckets we still go with the naive 'count them one by
 
 Now to implement this:
 
-### Data structures
+## Data structures
 
 We will use some auxiliary structures to make the code easier to understand:
 
@@ -121,11 +121,11 @@ int end_index[N];   // Analogous to start_index
 
 Check the full code below to see how to initialize them.
 
-### Count
+## Count
 
 `count` is the same as the naive solution.
 
-### Update
+## Update
 
 `update` now has to find the element inside its bucket since it's position is lost when sorted.
 Then we have to sort it again.
@@ -145,7 +145,7 @@ void update(int i, int val) {
 }
 ```
 
-### Query
+## Query
 
 Now to answer queries we need to consider each case:
 
@@ -191,7 +191,9 @@ int query(int x, int y, int val) {
 }
 ```
 
-### Full code
+---
+
+## Full code
 
 ```cpp
 #include <iostream>
